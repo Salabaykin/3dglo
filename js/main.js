@@ -12,7 +12,8 @@ window.addEventListener('DOMContentLoaded', function() {
             dateNow = new Date().getTime(),
             timeRemaining = (dateStop - dateNow)/1000,
             seconds = Math.floor(timeRemaining % 60),
-            minutes = Math.floor(timeRemaining / 60);
+            minutes = Math.floor((timeRemaining / 60) % 60),
+            hours = Math.floor(timeRemaining / 60 / 60);
             
     }
 
