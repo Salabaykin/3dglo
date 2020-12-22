@@ -45,7 +45,6 @@ window.addEventListener('DOMContentLoaded', function() {
     countTimer('23 December 2020');
 
     // Menu 
-
     const toggleMenu = () => {
 
         const btnMenu = document.querySelector('.menu'),
@@ -67,16 +66,31 @@ window.addEventListener('DOMContentLoaded', function() {
     toggleMenu();
 
     // Popup 
-
     const togglePopup = () => {
         const popup = document.querySelector('.popup'),
               popupBtn = document.querySelectorAll('.popup-btn'),
-              popupClose = document.querySelector('.popup-close'),
-              count = 0;
+              popupClose = document.querySelector('.popup-close');
+        let count = 100;
 
         popupBtn.forEach((elem) => {
             elem.addEventListener('click', () => {
-                popup.style = 'display: block; opacity: 0;';
+                
+                if (document.documentElement.clientWidth > 768) {
+                    let animated = () => {
+                        count--;
+                        console.log(count);
+                        if (count >= 0) {
+                            popup.style = `display: block; transform: translateY(${count}%);`
+                        } else {
+                            clearInterval(idInterval);
+                            count = 100;
+                        }
+                    }
+
+                    let idInterval = setInterval(animated, 5);
+                } else {
+                    popup.style = `display: block`;
+                }
                 
             });
         });
