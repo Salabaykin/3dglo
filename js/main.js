@@ -71,11 +71,13 @@ window.addEventListener('DOMContentLoaded', function() {
     const togglePopup = () => {
         const popup = document.querySelector('.popup'),
               popupBtn = document.querySelectorAll('.popup-btn'),
-              popupClose = document.querySelector('.popup-close');
+              popupClose = document.querySelector('.popup-close'),
+              count = 0;
 
         popupBtn.forEach((elem) => {
             elem.addEventListener('click', () => {
-                popup.style.display = 'block';
+                popup.style = 'display: block; opacity: 0;';
+                
             });
         });
 

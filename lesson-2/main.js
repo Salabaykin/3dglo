@@ -19,19 +19,19 @@ else if (hours >= 23 && hours <= 5)
 
 function foo() {
     if(date.getDay() === 0) {
-        console.log('Сегодня: Воскресенье');
+        res.append(`${day}, Сегодня: Воскресенье, Текущее время ${date.toLocaleTimeString('en')}, До нового года осталось ${timeRemaining} дней`);
     } else if(date.getDay() === 1) {
         res.append(`${day}, Сегодня: Понедельник, Текущее время ${date.toLocaleTimeString('en')}, До нового года осталось ${timeRemaining} дней`);
     } else if(date.getDay() === 2) {
-        console.log('Сегодня: Вторник');
+        res.append(`${day}, Сегодня: Вторник, Текущее время ${date.toLocaleTimeString('en')}, До нового года осталось ${timeRemaining} дней`);
     } else if(date.getDay() === 3) {
-        console.log('Сегодня: Среда');
+        res.append(`${day}, Сегодня: Среда, Текущее время ${date.toLocaleTimeString('en')}, До нового года осталось ${timeRemaining} дней`);
     } else if(date.getDay() === 4) {
-        console.log('Сегодня: Четверг');
+        res.append(`${day}, Сегодня: Четверг, Текущее время ${date.toLocaleTimeString('en')}, До нового года осталось ${timeRemaining} дней`);
     } else if(date.getDay() === 5) {
-        console.log('Сегодня: Пятница');
+        res.append(`${day}, Сегодня: Пятница, Текущее время ${date.toLocaleTimeString('en')}, До нового года осталось ${timeRemaining} дней`);
     } else if(date.getDay() === 6) {
-        console.log('Сегодня: Суббота');
+        res.append(`${day}, Сегодня: Суббота, Текущее время ${date.toLocaleTimeString('en')}, До нового года осталось ${timeRemaining} дней`);
     }
 }
 
