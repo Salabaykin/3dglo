@@ -39,6 +39,7 @@ window.addEventListener('DOMContentLoaded', function() {
         }
         
         const interval = setInterval(updateClock, 1000);
+        updateClock();
     }
 
     countTimer('23 December 2020');
