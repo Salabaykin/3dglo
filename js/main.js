@@ -68,6 +68,7 @@ window.addEventListener('DOMContentLoaded', function() {
     // Popup 
     const togglePopup = () => {
         const popup = document.querySelector('.popup'),
+              popupContent = popup.querySelector('.popup-content'),
               popupBtn = document.querySelectorAll('.popup-btn'),
               popupClose = document.querySelector('.popup-close');
         let count = 100;
@@ -78,9 +79,9 @@ window.addEventListener('DOMContentLoaded', function() {
                 if (document.documentElement.clientWidth > 768) {
                     let animated = () => {
                         count--;
-                        console.log(count);
                         if (count >= 0) {
-                            popup.style = `display: block; transform: translateY(${count}%);`
+                            popup.style = `display: block;`
+                            popupContent.style = `transform: translateY(${count}%);`
                         } else {
                             clearInterval(idInterval);
                             count = 100;
