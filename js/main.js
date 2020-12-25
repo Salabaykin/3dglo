@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', function() {
         updateClock();
     }
 
-    countTimer('25 December 2020');
+    countTimer('28 December 2020');
 
     // Menu 
     const toggleMenu = () => {
@@ -253,5 +253,28 @@ window.addEventListener('DOMContentLoaded', function() {
     };
 
     slider();
+
+    // Command
+    const commandPhoto = document.querySelectorAll('.command__photo');
+
+    commandPhoto.forEach(item => {
+        let src;
+        item.addEventListener('mouseenter', (e) => {
+            src = e.target.src;
+            e.target.src = e.target.dataset.img;
+        });
+        item.addEventListener('mouseleave', (e) => {
+            e.target.src = src;
+        });
+    });
+
+    // Calc
+    const calcBlockInput = document.querySelectorAll('.calc-block > input');
+
+    calcBlockInput.forEach(item => {
+        item.addEventListener('input', () => {
+            item.value = item.value.replace(/\D/g, '');
+        });
+    });
           
 });
