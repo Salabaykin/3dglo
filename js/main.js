@@ -285,10 +285,27 @@ window.addEventListener('DOMContentLoaded', function() {
               calcDay = document.querySelector('.calc-day'),
               totalValue = document.getElementById('total');
 
+        const numAnim = (num1, num2) => {
+            let n = 0;
+
+            let t = Math.round(time/(num/10));
+            let interval = setInterval(() => {
+                n = n + 10;
+
+                if(n == num) {
+                    clearInterval(interval);
+                }
+                totalValue.textContent = n;
+
+            }, t);
+        };
+
         const countSum = () => {
             let total = 0,
                 countValue = 1,
-                dayValue = 1;
+                dayValue = 1,
+                count = 1;
+
             const typeValue = calcType.options[calcType.selectedIndex].value,
                   squareValue = +calcSquare.value;
 
@@ -306,7 +323,13 @@ window.addEventListener('DOMContentLoaded', function() {
                 total = price * typeValue * squareValue * countValue * dayValue;
             }
 
-            totalValue.textContent = total;
+			setInterval(() => {
+				if (count < total) {
+					count *= 2;
+					totalValue.textContent = count;
+				}
+			}, 35);
+
         };
 
         calcBlock.addEventListener('change', (event) => {
