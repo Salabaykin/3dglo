@@ -116,9 +116,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
     togglePopup();
 
-    // Tubs 
+    // Tabs 
 
-    const tubs = () => {
+    const tabs = () => {
         const tabHeader = document.querySelector('.service-header'),
               tab = tabHeader.querySelectorAll('.service-header-tab'),
               tabContent = document.querySelectorAll('.service-tab');
@@ -150,7 +150,7 @@ window.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    tubs();
+    tabs();
 
     // Slider 
 
@@ -333,5 +333,8 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     calc(100);
+
+    // Ajax form
+    
           
 });
