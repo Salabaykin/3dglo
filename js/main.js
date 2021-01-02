@@ -364,11 +364,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
-            form.reset();
             form.append(statusMessage);
             statusMessage.innerHTML = loadMessage;
             statusMessage.style.color = '#fff';
-            console.log(form);
             const formData = new FormData(form);
             let body = {};
             for (let [key, value] of formData.entries()) {
@@ -384,6 +382,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 statusMessage.textContent = errorMessage;
                 console.error(error);
             });
+            form.reset();
         });
 
         const postData = (body, outputData, errorData) => {
