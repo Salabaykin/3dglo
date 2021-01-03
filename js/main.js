@@ -347,7 +347,7 @@ window.addEventListener('DOMContentLoaded', function() {
             if (target.matches('.form-phone')) {
                 target.value = target.value.replace(/[^\+\d]/g, '');
             } else if (target.matches('.form-name') || target.matches('#form2-name')) {
-                target.value = target.value.replace(/[^А-Яа-яЁё]\s?[^А-Яа-яЁё]?/gi, '');
+                target.value = target.value.replace(/[^А-Яа-яЁё\- ]/gi, '');
             } else if (target.matches('.mess')) {
                 target.value = target.value.replace(/[^0-9А-Яа-яЁё\s!,-?:;""()]/gi, '');
             } else if (target.matches('.form-email')) {
