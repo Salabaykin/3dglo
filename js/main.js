@@ -368,12 +368,11 @@ window.addEventListener('DOMContentLoaded', function() {
             statusMessage.innerHTML = loadMessage;
             statusMessage.style.color = '#fff';
             const formData = new FormData(form);
-            let body = {};
-            for (let [key, value] of formData.entries()) {
-                body[key] = value;
-            }
-            postData(body)
+            postData(formData)
                 .then((response) => {
+                    if (response.status !== 200) {
+                        throw new Error('Status network not 200');
+                    } 
                     statusMessage.textContent = successMessage;
                     setTimeout(() => {
                         document.querySelector('.popup').style = 'display:none;';
@@ -385,29 +384,19 @@ window.addEventListener('DOMContentLoaded', function() {
         });
 
         const postData = (body) => {
-
-            return new Promise((resolve, reject) => {
-                const request = new XMLHttpRequest();
-                request.open('POST', './server.php');
-                request.setRequestHeader('Content-Type', 'application/json');
-                request.addEventListener('readystatechange', () => {
-                    if (request.readyState !== 4) {
-                        return;
-                    }
-                    if (request.status === 200) {
-                        resolve();
-                    } else {
-                        reject(request.status);
-                    }
-                });
-                request.send(JSON.stringify(body));
+            return fetch('./server.php', {
+                method: 'POST',
+                cache: 'default',
+                headers: {
+                    'Content-Type': 'application/json'
+                }, 
+                body: body,
+                credentials: 'include'
             });
-
         };
     };
 
     sendForm('form1');
     sendForm('form2');
-    sendForm('form3');
-          
+    sendForm('form3'); 
 });
