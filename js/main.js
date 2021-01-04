@@ -351,7 +351,7 @@ window.addEventListener('DOMContentLoaded', function() {
             } else if (target.matches('.mess')) {
                 target.value = target.value.replace(/[^0-9А-Яа-яЁё\s!,-?:;""()]/gi, '');
             } else if (target.matches('.form-email')) {
-                let patt = /^\w{2,}@\w{2,}\.\w{2,}$/i;
+                let patt = /^[\w\-]{2,}@\w{2,}\.\w{2,}$/i;
                 if (!patt.test(target.value)) {
                     target.style = 'border:3px solid red;';
                 } else {
