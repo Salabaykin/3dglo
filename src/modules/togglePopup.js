@@ -20,9 +20,16 @@ const togglePopup = () => {
                 }
                 let idInterval = setInterval(animated, 4);
             } else {
-                popup.style = `display: block`;
+                popup.style = 'display:block;';
+                popupContent.style = 'left:50%;transform:translateX(-50%);';
             }
         });
+    });
+
+    window.addEventListener('resize', () => {
+        if (document.documentElement.clientWidth <= 768) {
+            popupContent.style = 'left:50%;transform:translateX(-50%);';
+        } 
     });
 
     popup.addEventListener('click', (event) => {
