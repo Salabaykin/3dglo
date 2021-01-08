@@ -19,11 +19,15 @@
   },
   "homepage": "https://github.com/Salabaykin/3dglo#readme",
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
   }
 }
